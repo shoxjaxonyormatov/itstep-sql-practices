@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS authors(
+	id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	fname VARCHAR(50),
+	lname VARCHAR(50),
+	birth_date DATE
+);
+
+CREATE TABLE IF NOT EXISTS books(
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(100),
+    year INT,
+    description TEXT,
+    rating FLOAT,
+    author_id INT REFERENCES authors(id)
+);
